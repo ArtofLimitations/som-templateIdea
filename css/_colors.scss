@@ -1,0 +1,117 @@
+$grey-5: #555;
+$dark:   #333;
+$medium: #808080;
+$light:  #ccc;
+$white:  white;
+$black:  black;
+
+$light-grey: #D6D6D6;
+$highlight:  #0C6CB5;
+
+.basic-dark { background-color: $dark; }
+.basic-light { background-color: $light; }
+.basic-white { background-color: $white; }
+.basic-black { background-color: $black; }
+.text-dark { color: $dark; }
+.text-light { color: $light; }
+.text-white { color: $white; }
+.text-black { color: $black; }
+
+$colors: (
+    'red':    #EB2C13,
+    'green':  #72B11A,
+    'blue':   #137FEB,
+    'yellow': #F6A308,
+    'teal':   #3BC368, 
+    'purple': #D21CE2,
+    'orange': #E07000,
+    'grey'  : #968468
+);
+
+$shades-map: (
+    'lightest': 35,
+    'lighter' : 22, 
+    'light'  : 10,
+    'base'   : 0,
+    'dark'    : -10,
+    'darker'  : -22,
+    'darkest' : -30
+);
+
+@function palette($color) {
+  @if map-has-key($colors, $color) {
+   @return map-get($colors, $color);
+  }
+}
+
+@function shades($shade) {
+  @if map-has-key($shades-map, $shade) {
+   @return map-get($shades-map, $shade);
+  }
+}
+
+@function palette-shade($color_name, $shade_name) {
+  $color: palette($color_name);
+  $shade: shades($shade_name); 
+
+  @if $shade > 0 {
+    @return desaturate(lighten($color, $shade * 1% ), $shade / 8);
+  }
+  @else {
+    @return saturate(darken($color, abs($shade) * 1% ), abs($shade) / 8);
+  }
+}
+
+// Generate Color Classes
+
+//.red { background-color: palette('red'); }
+//.red.darker{ background-color: palette-shade('red', 'darker'); }  
+
+@each $color_name, $color_value in $colors {
+  @each $shade_name, $shade_value in $shades-map {
+    @if $shade_value != 0 {
+      $value: palette-shade($color_name, $shade_name);
+      .#{$color_name}.#{$shade_name} {
+       background-color: $value !important;
+      }
+    }
+    @else {
+      .#{$color_name} {
+       background-color: $color_value !important;
+      }
+    }
+  }
+}
+
+@each $color_name, $color_value in $colors {
+  @each $shade_name, $shade_value in $shades-map {
+    @if $shade_value != 0 {
+      $value: palette-shade($color_name, $shade_name);
+      .text-#{$color_name}.#{$shade_name} {
+       color: $value !important;
+      }
+    }
+    @else {
+      .text-#{$color_name} {
+       color: $color_value !important;
+      }
+    }
+  }
+}
+
+// Generate Opacity Classes
+
+@for $i from 0 through 9 { 
+  .white-opacity-#{$i} {
+    background-color: rgba(white, $i/10);
+  }
+}
+
+@for $i from 0 through 9 { 
+  .dark-opacity-#{$i} {
+    background-color: rgba(rgb(100,100,100), $i/10);
+  }
+}
+
+
+

@@ -1,0 +1,384 @@
+// ***** Card *****
+.card {
+    position: relative;
+    display: inline-block;
+    font-family: $roboto-slab !important;
+    font-size: 1.1em;
+    text-align: left;
+    //border: 1px white solid;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    min-height: 20px;
+    margin: 4px 0 15px;
+    box-shadow: 0px 3px 2px -4px rgba(33,16,33,0.1);
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card.float::after {
+    content: "";
+    border-radius: 4px;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(23,26,23,0.8);
+    opacity: 0;
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card.float:hover {
+    -webkit-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+}
+
+.card.float:hover::after {
+    opacity: 1;
+}
+
+.card > .image {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 250px;
+    max-height: 250px; 
+    border-radius: 4px 4px 0 0;
+}
+
+.card img {
+    width: 100%;
+    min-height: 250px;
+}
+
+.card > .header {
+    position: relative;
+    width: 100%;
+    font-family: $lato;
+    font-size: 1.5rem;
+    bottom: 30px;
+    margin-bottom: -24px;
+    color: rgba(255,255,255,0.90);
+    //padding: 6px 2px 0 2px;
+}
+
+.card > .meta {
+    font-size: 1rem;
+    font-family: $lato;
+    padding: 2px 2px 0 2px;
+    color: $grey-5;
+}
+
+.card > .description {
+    font-size: 1.125rem;
+    font-family: $lato;
+    padding: 6px 2px 8px 2px;
+}
+
+.card > hr {
+    border: 1px $light solid;
+    width: 95%;
+    margin: 0 auto;
+} 
+
+.card > .footer, .card > a {
+    display: block;
+    width: 100%;
+    height: 32px;
+    background-color: $light;
+    font-family: $roboto-slab;
+    text-align: center;
+    border-radius: 0 0 4px 4px;
+    line-height: 32px;
+}
+
+.card > a:link {
+    color: $dark;
+}
+
+@media only screen and (min-width: $breakpoint-small) {
+    .card.medium { width: 50%; }
+}
+
+// ***** Button Flat *****
+
+.button-flat {
+    @include button-base;
+    color: hsla(20, 20%, 99%, 80%);
+    border: none;
+    outline: none;
+}
+
+.button-flat:hover {
+    text-decoration: underline;
+}
+
+.button-flat:active {
+    color: #222;
+}
+
+.button-flat:focus {
+    @include button-focus;
+}
+
+// ***** Button Outline *****
+
+.button-outline {
+    @include button-base;
+    outline: none;
+    background-color: Transparent;
+    border: 1px solid currentColor;
+    color: currentColor;
+}
+
+.button-outline:active {
+    box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+}
+
+.button-outline:active:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    opacity: 0.4;
+    background-color: currentColor !important;
+}
+
+.button-outline:focus {
+    @include button-focus;
+}
+
+// ***** Breadcrumbs *****;
+
+.breadcrumbs {
+    display: inline-block;
+    width: 100%;
+    padding: 0;
+    margin: 0 0 0 -21px;
+    list-style-type: none;
+    color: $grey-5 !important;
+}
+
+.breadcrumbs li {
+    display: inline-block;
+    position: relative;
+    height: 32px;
+    background-color: $dark;
+    min-width: 8px;
+    margin-left: -1px;
+}
+
+.breadcrumbs li a {
+    display: inline-block;
+    color: $light !important;
+    text-decoration: none;
+    font-family: $lato;
+    font-size: 1.25rem;
+    padding-right: 16px;
+    padding-left: 16px;
+    line-height: 32px;
+    height: 32px;
+}
+
+.breadcrumbs li:hover {
+     background-color: $grey-5;
+}
+
+.breadcrumbs li a:hover {
+    color: white !important;
+}
+
+.breadcrumbs li a:hover::after {
+    position: absolute;
+    content: "";
+    left: 100%;
+    top: 50%;
+    margin-top: -16px;
+    width: 0;
+    height: 0;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-left: 8px solid $grey-5;
+    z-index: 3;
+}
+
+.breadcrumbs li a::after {
+    position: absolute;
+    content: "";
+    left: 100%;
+    top: 50%;
+    margin-top: -16px;
+    width: 0;
+    height: 0;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-left: 8px solid $dark;
+    z-index: 2;
+}
+
+.breadcrumbs li a::before {
+    position: absolute;
+    content: "";
+    left: 100%;
+    top: 50%;
+    margin-top: -16px;
+    width: 0;
+    height: 0;
+    border-top: 16px solid transparent;
+    border-bottom: 16px solid transparent;
+    border-left: 8px solid $light;
+    margin-left: 1px;
+    z-index: 1;
+}
+
+.breadcrumbs li:last-child a::before { 
+    border-left: 8px solid $light;
+}
+
+// ***** Message Box *****
+
+.message {
+    //width: 95%; 
+    font-size: 16px;
+    font-family: $lato;
+    font-weight: bold;
+    line-height: 1.3rem;
+    background-color: #F8F8F9;
+    box-shadow: 0 0 0 1px #A9D5DE inset, 0 0 0 0 transparent;
+    padding: 1em 2%;
+    margin-bottom: 20px;
+    color: desaturate($highlight, 20%);
+    border-radius: 4px;
+}
+
+.message > span {
+    padding: 0 6px;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 100%;
+    border: solid 2px desaturate($highlight, 20%);
+    margin-right: 4px;
+    font-weight: 700;
+}
+
+// ***** Animated Form *****
+
+.animated {
+    padding: 20px 0;
+
+    .input-group {
+        position: relative;
+        margin-bottom: 1rem;
+    }
+
+    input[type="text"] {
+        font-size:18px;
+        padding:6px;
+        //margin-bottom: 10px;
+        display:block;
+        width: 100%;
+        max-width: 300px;
+        border:none;
+        border-bottom:1px solid $light;
+    }
+
+    input:focus[type="text"] {
+        outline:none;
+        border-bottom:1px solid $highlight;
+    }
+
+    input[type="submit"] {
+        //box-sizing: border-box;
+        width: 100%;
+        max-width: 312px;
+        margin: 0;
+        padding: 0;
+    }
+
+    input[type="radio"] ~ label,
+    input[type="checkbox"] ~ label {
+        font-size:18px;
+        padding: 6px;
+        //border-radius: 10%;
+        transition:0.5s ease all; 
+        -moz-transition:0.5s ease all; 
+        -webkit-transition:0.5s ease all;
+    }
+
+    input[type="radio"]:checked + label,
+    input[type="checkbox"]:checked + label {
+        color:#5264AE;
+        //border-bottom: 1px solid $light;
+        padding: 6px;
+        //border-radius: 0;
+    }
+
+    textarea {
+        height: 4rem;
+        font-size:1rem;
+        padding:5px;
+        width: 100%;
+        max-width: 300px;
+        border:1px solid $light;
+        transition:0.2s ease all; 
+        -moz-transition:0.2s ease all; 
+        -webkit-transition:0.2s ease all;
+    }   
+
+    input[type="text"] ~ label, textarea ~ label {
+        color: $grey-5;
+        font-size:1.2rem;
+        font-weight:normal;
+        position:absolute;
+        pointer-events:none;
+        left:5px;
+        top:10px;
+        transition:0.2s ease all; 
+        -moz-transition:0.2s ease all; 
+        -webkit-transition:0.2s ease all;
+    }
+
+    input[type="text"]:focus ~ label, input[type="text"]:valid ~ label, textarea:focus ~ label, textarea:valid ~ label  {
+        top:-15px;
+        font-size:0.75rem;
+        color:#5264AE;
+    }
+}
+
+// ***** Well *****
+
+.well {
+    display: inline-block;
+    padding: $padding;
+    line-height: 1;
+    border-radius: 4px;
+}
+
+// ***** Media Queries *****
+
+@media only screen and (min-width: $breakpoint-small) { // 540px
+    .breadcrumbs li:last-child a::before { 
+        border: none;
+    }
+}
+
+@media only screen and (min-width: $breakpoint-large) { 
+    .animated {
+        input[type="radio"] ~ label,
+        input[type="checkbox"] ~ label {
+            border-radius: 10%;
+        }
+
+        input[type="radio"]:checked + label,
+        input[type="checkbox"]:checked + label { 
+            border-bottom: 1px solid $light;
+            border-radius: 0;
+        }
+    }
+}

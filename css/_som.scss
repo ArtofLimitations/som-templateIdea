@@ -1,0 +1,109 @@
+// Styles specific to the State of Maine website
+
+body {
+    background: #fff url("../img/lowpoly.jpg") no-repeat center center fixed;
+    background-size: cover !important;
+}
+
+.banner { 
+    padding: 10px 0 10px 2%; 
+    line-height: 1;
+    width: 98%;
+} 
+
+//.container { background-color: transparent; }
+
+.row a:link {
+    color: $highlight;
+}
+.row a:visited {
+    color: darken(desaturate($highlight, 50%), 10%);
+}
+.row a:hover {
+    color: desaturate(lighten($highlight, 20%), 10%);
+}
+.row a:active {
+    color: darken(desaturate($highlight, 50%), 10%);
+}
+
+// Jagged Footer
+
+.jagged {
+    position: relative;
+    -webkit-filter: drop-shadow(rgba(0, 0, 0, 0.8) 0px 1px 2px); 
+    filter: drop-shadow(rgba(0, 0, 0, 0.8) 0px 1px 2px);
+}
+
+// Jagged footer color
+
+.jagged::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    height: 10px;
+    background:
+    linear-gradient(
+      45deg, transparent 33.333%,
+      $dark 33.333%, $dark 66.667%,
+      transparent 66.667%
+    ),
+    linear-gradient(
+      -45deg, transparent 33.333%,
+      $dark 33.333%, $dark 66.667%,
+      transparent 66.667%
+    );
+    background-size: 10px 20px;
+}
+
+// Footer background color and other styles
+
+#footer .row {
+    background: $dark !important;
+    padding-bottom: 25px;
+}
+
+#footer h4 {
+    display: block;
+    margin: 4px 0 10px 0;
+    text-align: left;
+}
+
+#footer ul {
+    display: inline-block;
+    margin: 0 0 8px 0;
+    list-style-type: none;
+    padding: 0;
+}
+
+#footer ul li {
+    margin-bottom: 6px;
+}
+
+#footer a:link,
+#footer a:visited,
+#footer a:active,
+{
+    color: white;
+    color: currentColor;
+}
+#footer a:hover {
+    color: white !important;
+}
+
+// Media Queries
+
+@media only screen and (min-width: $breakpoint-large) { // 960px or more
+    .banner { 
+        width: 60%;
+    } 
+}
+
+@media only screen and (min-width: $breakpoint-med) { // 720px or more
+    //.container { background-color: rgba(100,100,100,0.4 ); }
+}
+
+@media only screen and (min-width: $breakpoint-small) { // 540px or more
+    
+}

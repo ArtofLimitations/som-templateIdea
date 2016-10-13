@@ -1,0 +1,212 @@
+#main-menu {
+	font-family: $roboto-slab;
+	position:relative;
+	//z-index:1;
+	width:auto;
+	margin: -20px -22px 0 -22px;
+}
+
+#secondary-menu {
+	z-index: 1;
+}
+
+#secondary-menu a {
+	line-height: 1;
+}
+
+#secondary-menu a:link, #secondary-menu a:visited {
+	color: $dark !important;
+}
+
+.sm-simple.sm-vertical li {
+	border-color: rgba(100,100,100,0.1);
+}
+
+#main-menu, #main-menu > li.mega-menu  {
+	position:static !important;
+}
+
+#main-menu > li > ul.mega-menu {
+	right:0 !important;
+	width: auto !important;
+	max-width: 1324px !important;
+	margin: 0 auto !important;
+	padding: 4px;
+}
+
+.sm-simple ul {
+	padding: 0;
+	z-index: 3;
+}
+
+.sm-simple ul > li {
+	border-top: none;
+}
+
+#main-menu > li {
+	border-right: 1px dashed rgba(255,255,255,0.6);
+}
+
+#main-menu > li:first-child,
+#main-menu > li:last-child {
+	border-right: none;
+}
+
+.sm-simple a, .sm-simple a:hover, .sm-simple a:focus {
+	font-size: 1.25rem;
+}
+
+.sm-simple ul a, .sm-simple ul a:hover, .sm-simple ul a:focus, .sm-simple ul a:active {
+	font-size: 1rem;
+}
+
+#main-menu a span.sub-arrow {
+	background-color: transparent;
+	width: 0;
+	height: 0;
+	border-width: 8px;
+	border-style: solid;
+	border-color: $dark transparent transparent transparent;
+	left: 50%;
+	bottom: -2px;
+	top: auto;
+	margin-left: -8px;
+}
+
+#main-menu ul a span.sub-arrow { 
+	border-color: transparent transparent transparent $dark;
+	top: 50%;
+	left: auto;
+	right: 10px;
+	margin-top: -8px;
+}
+
+//#main-menu ul li > ul {
+	
+//}
+
+#main-menu h1 {
+	padding: 0 8px 0 8px;
+	line-height: 60px;
+	font-size: 32px;
+	border-right: 1px dashed rgba(100,110,155, 0.9);
+	background-color: rgba(100,100,100, 0.2)
+}
+
+#main-menu .menu-search-bar {
+	//display:inline-block;
+ 	background-color: rgba(255,255,255,0.2);
+  	height: 44px;
+  	margin: 8px;
+	width: 20%;
+  	//width: 370px;
+  	border-radius: 8px;
+  	position: relative;
+  	resize: vertical;
+  	text-align: right;
+	float: right;
+}
+
+#main-menu .menu-search-bar .wrapper {
+  	position: absolute;
+  	top: 50%;
+  	left: 4px;
+  	right: 4px;
+  	border-radius: 10px;
+  	transform: translateY(-50%);
+  	resize: vertical;
+}
+
+#main-menu .menu-search-bar .wrapper .search {
+	//width: 310px;
+	width: 85.63%;
+    height: 36px;
+    padding: 10px 10px;
+    float: left;    
+    border: 0;
+    background-color: #eee;
+    border-radius: 6px 0 0 6px;
+}
+
+#main-menu .menu-search-bar .wrapper .submit {
+	position: relative;
+    float: right;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 36px;
+    //width: 52px;
+	width: 14.36%;
+	line-height: 40px;
+	border-radius: 0 6px 6px 0; 
+	text-transform: uppercase;
+    background-color: $dark;
+	color: #eee;
+}
+
+#main-menu .menu-search-bar .wrapper .submit:active {
+	background-color: $grey-5;
+}
+
+#main-menu a.current {
+	background-color: inherit;
+	box-shadow: inset 0px -5px 0px 0px rgba(0,0,0,0.75);
+	color: #222;
+}
+
+#main-menu li li a.current { 
+	box-shadow: none;
+	background-color: rgba(100,100,100,0.2);
+}
+
+#secondary-menu a.current {
+	background-color: rgba(100,100,100,0.2);
+}
+
+@media (max-width: 767px) {
+	#main-menu {
+		margin: -20px -20px 0 -20px;
+	}
+
+	#main-menu .menu-search-bar {
+		float: none;
+		width: calc(100% - 18px);
+	}
+
+	#main-menu .menu-search-bar .wrapper {
+		position: absolute;
+  		top: 50%;
+  		left: 4px;
+  		right: 4px;
+  		border-radius: 10px;
+  		transform: translateY(-50%);
+  		resize: vertical;
+		margin: 0 auto;
+	}
+
+	#main-menu > li {
+		border-right: 0;
+	}
+
+	#main-menu h1 {
+		border-right: 0;
+	}
+
+	#main-menu a.current {
+		box-shadow: none;
+		box-shadow: inset 5px 0px 0px 0px rgba(0,0,0,0.75), inset -5px 0px 0px 0px rgba(0,0,0,0.75);
+	}
+
+	#main-menu a span.sub-arrow {
+		border-color: $dark transparent transparent transparent;
+		top: 50%;
+		left: auto;
+		right: 10px;
+		margin-top: -8px;
+	}
+}
+
+@media only screen and (max-width: $breakpoint-large) {
+	
+}
+

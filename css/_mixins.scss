@@ -1,0 +1,30 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+} 
+
+@mixin standard-size {
+    padding: $padding-sm;
+    line-height: 1.5;
+}
+
+@mixin button-base {
+  position: relative;
+  display: inline-block;
+  padding: 0 6px 0 6px;
+  margin: 6px 8px 6px 8px;
+  min-width: 100px;
+  border-radius: 3px;
+  font-family: $lato;
+  font-size: 1rem;
+  line-height: 3rem;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration:none;
+}
+
+@mixin button-focus {
+  outline: 2px $highlight solid;
+}

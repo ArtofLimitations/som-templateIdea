@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Examples Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/index.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+        //Hide button focus outline on mousedown
+        $('body').on('mousedown', '*', function (e) {
+            if (($(this).is(':focus') || $(this).is(e.target)) && $(this).css('outline-style') == 'none') {
+                $(this).css('outline', 'none').on('blur', function () {
+                    $(this).off('blur').css('outline', '');
+                });
+            }
+        });
+    });
+    </script>
+</head>
+
+<body>
+    <div class="row basic-white hover">
+
+        <div class="col-3">
+            <h1>H1</h1>
+            <h2>H2</h2>
+            <h3>H3</h3>
+            <h4>H4</h4>
+            <h5>H5</h5>
+            <h6>H6</h6>
+
+            <button class="button-flat blue">flat button</button>
+            <button class="button-flat red light hover">flat button</button>
+            <button class="button-outline text-red dark">outline button</button>
+        </div>
+
+        <div class="col-3">
+            <p class="text-red">text-red</p>
+            <p class="text-blue">text-blue</p>
+            <p class="text-green">text-green</p>
+            <p class="text-yellow">text-yellow</p>
+            <p class="text-orange">text-orange</p>
+            <p class="text-teal">text-teal</p>
+            <p class="text-grey">text-grey</p>
+            <p class="text-purple">text-purple</p>
+            <p>Additional colors with no shades:</p>
+            <p>Backgrounds: <span class="basic-white hover">basic-white</span>, <span class="basic-black text-white hover">basic-black</span>,
+                <span class="basic-dark text-white hover">basic-dark</span>, <span class="basic-light hover">basic-light</span></p>
+            <p class="red">Text colors: <span class="text-white">text-white</span>, <span class="text-black">text-black</span>, <span class="text-dark">text-dark</span>,
+                <span class="text-light">text-light</span></p>
+            <p>Adding the <span class="hover">hover</span> class creates a box shadow around the element.</p>
+            <hr class="spacer">
+            <p>HTML Examples:</p>
+            <xmp>
+                <p class="text-green">example</p>
+                <p class="red lighter">You can add shades to colors</p>
+
+                <div class="row">
+                    <div class="col-5 basic-white hover"></div>
+                    <div class="col-7 basic-white hover"></div>
+                </div>
+                <hr class="spacer">
+                <p class="message"><span>!</span> This is a message box</p>
+            </xmp>
+        </div>
+
+        <div class="col-3">
+            <p class="red">red</p>
+            <p class="blue">blue</p>
+            <p class="green">green</p>
+            <p class="yellow">yellow</p>
+            <p class="orange">orange</p>
+            <p class="teal">teal</p>
+            <p class="grey">grey</p>
+            <p class="purple">purple</p>
+        </div>
+
+        <div class="col-3">
+            <select id="selectedColor">
+                <option class="text-red">Red</option>
+                <option class="text-green">Green</option>
+                <option class="text-blue">Blue</option>
+                <option class="text-yellow">Yellow</option>
+                <option class="text-teal">Teal</option>
+                <option class="text-orange">Orange</option>
+                <option class="text-grey">Grey</option>
+                <option class="text-purple">Purple</option>
+            </select>
+
+            <script>
+                 $(document).ready(function () {
+                     function changeColor () {
+                         this.current = this.current || 'red';
+                         var colorValue = $('#selectedColor').val();
+                         $('.message').html( 'Current color: ' + colorValue  );
+                         var value = null;
+                         var text = null;
+                         var that = this;
+
+                         $('.example').each(function (i, obj) {
+                            value = $(this).attr("class").replace(that.current, colorValue.toLowerCase());
+                            $(this).attr("class", value);
+                            text = $(this).html().replace(that.current, colorValue.toLowerCase());
+                            $(this).html(text);
+                         });
+
+                         this.current = colorValue.toLowerCase();
+                     }
+                     $( "#selectedColor" ).change( changeColor );
+                     changeColor();
+                 });
+            </script>
+            <p class="message"></p>
+            <p class="example red lightest">red lightest</p>
+            <p class="example red lighter">red lighter</p>
+            <p class="example red light">red light</p>
+            <p class="example red text-white">red</p>
+            <p class="example red dark text-white">red dark</p>
+            <p class="example red darker text-white">red darker</p>
+            <p class="example red darkest text-white">red darkest</p>
+
+        </div>
+
+    </div>
+    <hr class="spacer">
+    <div class="row hover basic-white text-lg">
+
+        <div class="col-2">
+            <h3>Small Column <br>(col-2)</h3>
+        </div>
+
+        <div class="col-10">
+            <p>Use the form below to report website problems to the Maine.gov webmaster. Be sure to provide your email address
+                if you would like a response. The Maine.gov webmaster can help you. (Example Form)</p>
+
+            <form class="animated">
+                <div class="row">
+
+                    <div class="col-6">
+                        <div class="input-group">
+                            <input type="text" id="firstname" required>
+                            <label for="firstname">First Name</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" id="email" required>
+                            <label for="email">Email</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="radio" name="gender" id="male" value="male"> <label for="male">Male</label>
+                            <input type="radio" name="gender" id="female" value="female"> <label for="female">Female</label>
+                            <input type="radio" name="gender" id="other" value="other"> <label for="other">Other</label>
+                            <input type="checkbox" name="hascat" id="cat" value="cat"> <label for="cat">Cat</label>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="input-group">
+                            <input type="text" id="lastname" required>
+                            <label for="lastname">Last Name</label>
+                        </div>
+
+                        <div class="input-group">
+                            <textarea rows="5" name="feedback" id="feedback" required></textarea>
+                            <label for="feedback">Enter silly question here</label>
+                        </div>
+
+                        <div class="input-group">
+                            <input class="form-button hover button-flat blue dark" type="submit" value="Submit">
+                        </div>
+                    </div>
+                </div>
+                <hr class="spacer">
+            </form>
+
+        </div>
+    </div>
+    <hr class="spacer">
+    <div class="row basic-dark hover">
+        <div class="col-2"></div>
+        <div class="col-8 basic-white">
+            <p class="text-jumbo text-center">Table</p>
+            <p class="text-center">The table is wrapped in a div with the "table-responsive" class so that a scrollbar appears on small devices.
+            There are plugins that can make your tables even more responsive such as Stacktable.js.
+            </p>
+            <div class="table-big table-responsive">
+                <table class="striped">
+                    <tr class="basic-dark text-white">
+                        <th>Company</th>
+                        <th>Contact</th>
+                        <th>Country</th>
+                    </tr>
+                    <tr>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Maria Anders</td>
+                        <td>Germany</td>
+                    </tr>
+                    <tr>
+                        <td>Centro comercial Moctezuma</td>
+                        <td>Francisco Chang</td>
+                        <td>Mexico</td>
+                    </tr>
+                    <tr>
+                        <td>Ernst Handel</td>
+                        <td>Roland Mendel</td>
+                        <td>Austria</td>
+                    </tr>
+                    <tr>
+                        <td>Island Trading</td>
+                        <td>Helen Bennett</td>
+                        <td>UK</td>
+                    </tr>
+                    <tr>
+                        <td>Laughing Bacchus Winecellars</td>
+                        <td>Yoshi Tannamuri</td>
+                        <td>Canada</td>
+                    </tr>
+                    <tr>
+                        <td>Magazzini Alimentari Riuniti</td>
+                        <td>Giovanni Rovelli</td>
+                        <td>Italy</td>
+                    </tr>
+                </table>
+            </div>
+            <hr class="cute">
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <hr class="spacer">
+    <div class="row basic-dark hover">
+        <div class="col-12 basic-white">
+            <hr class="spacer">col-12 &nbsp;&nbsp;&nbsp; Columns must add up to 12 and no greater.
+            <hr class="spacer">
+        </div>
+    </div>
+    <hr class="spacer">
+    <div class="row basic-dark hover">
+        <div class="col-11 basic-white">
+            <hr class="spacer">col-11
+            <hr class="spacer">
+        </div>
+        <div class="col-1 basic-white">
+            <hr class="spacer">col-1
+            <hr class="spacer">
+        </div>
+    </div>
+    <hr class="spacer">
+    <div class="row basic-dark hover">
+        <div class="col-10 basic-white">
+            <hr class="spacer">col-10
+            <hr class="spacer">
+        </div>
+        <div class="col-2 basic-white">
+            <hr class="spacer">col-2
+            <hr class="spacer">
+        </div>
+    </div>
+    <hr class="spacer">
+    <div class="row basic-dark hover">
+        <div class="col-9 basic-white">
+            <hr class="spacer">col-9
+            <hr class="spacer">
+        </div>
+        <div class="col-3 basic-white">
+            <hr class="spacer">col-3
+            <hr class="spacer">
+        </div>
+    </div>
+    <hr class="spacer">
+    <div class="row basic-dark hover">
+        <div class="col-8 basic-white">
+            <hr class="spacer">col-8
+            <hr class="spacer">
+        </div>
+        <div class="col-4 basic-white">
+            <hr class="spacer">col-4
+            <hr class="spacer">
+        </div>
+    </div>
+    <hr class="spacer">
+    <div class="row basic-dark hover">
+        <div class="col-7 basic-white">
+            <hr class="spacer">col-7
+            <hr class="spacer">
+        </div>
+        <div class="col-5 basic-white">
+            <hr class="spacer">col-5
+            <hr class="spacer">
+        </div>
+    </div>
+    <hr class="spacer">
+    <div class="row basic-dark hover">
+        <div class="col-6 basic-white">
+            <hr class="spacer">col-6
+            <hr class="spacer">
+        </div>
+        <div class="col-6 basic-white">
+            <hr class="spacer">col-6
+            <hr class="spacer">
+        </div>
+    </div>
+    <hr class="spacer">
+    <div class="row basic-dark hover">
+        <div class="col-3 basic-white">
+            <hr class="spacer">col-3
+            <hr class="spacer">
+        </div>
+        <div class="col-3 basic-white">
+            <hr class="spacer">col-3
+            <hr class="spacer">
+        </div>
+        <div class="col-3 basic-white">
+            <hr class="spacer">col-3
+            <hr class="spacer">
+        </div>
+        <div class="col-3 basic-white">
+            <hr class="spacer">col-3
+            <hr class="spacer">
+        </div>
+    </div>
+    <hr class="spacer">
+    <div class="row basic-dark hover">
+        <div class="col-2 basic-white">
+            <hr class="spacer">col-2
+            <hr class="spacer">
+        </div>
+        <div class="col-2 basic-white">
+            <hr class="spacer">col-2
+            <hr class="spacer">
+        </div>
+        <div class="col-2 basic-white">
+            <hr class="spacer">col-2
+            <hr class="spacer">
+        </div>
+        <div class="col-2 basic-white">
+            <hr class="spacer">col-2
+            <hr class="spacer">
+        </div>
+        <div class="col-2 basic-white">
+            <hr class="spacer">col-2
+            <hr class="spacer">
+        </div>
+        <div class="col-2 basic-white">
+            <hr class="spacer">col-2
+            <hr class="spacer">
+        </div>
+    </div>
+    <hr class="spacer">
+    <div class="row basic-dark hover">
+        <div class="col-1 basic-white">
+            <hr class="spacer">col-1
+            <hr class="spacer">
+        </div>
+        <div class="col-1 basic-white">
+            <hr class="spacer">col-1
+            <hr class="spacer">
+        </div>
+        <div class="col-1 basic-white">
+            <hr class="spacer">col-1
+            <hr class="spacer">
+        </div>
+        <div class="col-1 basic-white">
+            <hr class="spacer">col-1
+            <hr class="spacer">
+        </div>
+        <div class="col-1 basic-white">
+            <hr class="spacer">col-1
+            <hr class="spacer">
+        </div>
+        <div class="col-1 basic-white">
+            <hr class="spacer">col-1
+            <hr class="spacer">
+        </div>
+        <div class="col-1 basic-white">
+            <hr class="spacer">col-1
+            <hr class="spacer">
+        </div>
+        <div class="col-1 basic-white">
+            <hr class="spacer">col-1
+            <hr class="spacer">
+        </div>
+        <div class="col-1 basic-white">
+            <hr class="spacer">col-1
+            <hr class="spacer">
+        </div>
+        <div class="col-1 basic-white">
+            <hr class="spacer">col-1
+            <hr class="spacer">
+        </div>
+        <div class="col-1 basic-white">
+            <hr class="spacer">col-1
+            <hr class="spacer">
+        </div>
+        <div class="col-1 basic-white">
+            <hr class="spacer">col-1
+            <hr class="spacer">
+        </div>
+    </div>
+    <hr class="spacer">
+    <div class="row teal lighter">
+        <div class="col-6">
+            <!-- Card example -->
+                <div class="card medium float basic-dark">
+                    <div class="image"><img src="img/sample1.jpg" alt="Black and White Boat Photograph"></div>
+                    <div class="header">A Boat!</div>
+                    <div class="meta">September 7</div>
+                    <div class="description">a vessel for transport by water, constructed to provide buoyancy by excluding water and shaped to give
+                        stability and permit propulsion. Boats float and this card does too when you hover your mouse over it.</div>
+                    <div class="footer grey lightest"><a href="#">View</a></div>
+                </div>
+        </div>
+        <div class="col-6 text-center">
+            <!-- Card example -->
+                <div class="card">
+                    <div class="image"><img src="img/sample2.jpg" alt="Black and White Boat Photograph"></div>
+                    <div class="header text-orange lighter basic-dark">Example #2</div>
+                    <div class="meta">September 9</div>
+                    <div class="description">This card does not float, it's larger, and it has additional colors added for better contrast.</div>
+                    <div class="footer grey lightest"><a href="#">View</a></div>
+                </div>
+        </div>
+    </div>
+     <hr class="spacer">
+</body>
+
+</html>

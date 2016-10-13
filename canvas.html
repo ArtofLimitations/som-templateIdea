@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en-US">
+<!-- InstanceBegin template="/Templates/main.dwt" codeOutsideHTMLIsLocked="false" -->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <!-- InstanceBeginEditable name="doctitle" -->
+  <title>Home Page</title>
+  <!-- InstanceEndEditable -->
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- CSS files -->
+  <!--[if gt IE 9 | !IE ]><!-->
+  <link href='css/smartmenus/sm-core-css.css' rel='stylesheet' type='text/css'>
+  <link href='css/smartmenus/sm-simple/sm-simple.css' rel='stylesheet' type='text/css'>
+  <![endif]-->
+<!-- OIT CSS -->
+<link rel='stylesheet' href='css/index.css' type='text/css'>
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="container styles" type="text" value="container flex hover dark-opacity-5" -->
+<!-- InstanceParam name="Top row" type="boolean" value="false" -->
+<!-- InstanceParam name="main content styles" type="text" value="row hover basic-white text-lg" -->
+<!-- InstanceParam name="secondaryNav" type="boolean" value="false" -->
+<!-- InstanceParam name="googleAnalytics" type="boolean" value="false" -->
+</head>
+<body>
+<!--[if lt IE 10]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to
+    improve your experience.</p>
+  <![endif]--> 
+
+<!-- Start Skip Navigation: Accessibility Requirement -->
+<ul class="visuallyhidden">
+  <li><a href="#main-content" accesskey="1" title="Skip First Level Navigation: Accesskey+1">Skip First Level Navigation</a></li>
+  <li><a href="#search" accesskey="2" title="Skip to Search: Accesskey+2">Skip to Search</a></li>
+  <li><a href="#footer" accesskey="3" title="Skip to Footer: Accesskey+3">Skip To Footer</a></li>
+</ul>
+<!-- End Skip Navigation: Accessibility Requirement --> 
+
+<!-- main container -->
+<hr class="spacer">
+<div class="container flex hover dark-opacity-5"> 
+  
+  <!-- Smartmenu navbar --> 
+
+  <ul id="main-menu" class="sm sm-simple yellow" role="navigation" aria-label="Main Navigation">
+    <li>
+      <h1><abbr title="Office of Information Technology">OIT</abbr></h1>
+    </li>
+    <li><a href="index.html">Home</a></li>
+    <li class="mega-menu"> <a href="example"><span class="sub-arrow">+</span>Example</a>
+      <ul class="mega-menu orange lightest">
+        <li>
+          <div>
+            <h2>Mega Menu</h2>
+            <h5>This menu contains HTML like Div's and header text.</h5>
+            <p>Do not create a micro site in this menu.</p>
+            <p>Do not make this menu too large  or complex. Avoid making the mega menu cover up the website.</p>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li><a href="example" class="has-submenu"><span class="sub-arrow">+</span>Accessibility</a>
+      <ul class="submenu orange lightest">
+        <li><a href="example">Annual Reports</a></li>
+        <li><a href="example">IT Accessibility Committee</a></li>
+        <li><a href="example">Accessibility Resources</a></li>
+        <li><a href="example" class="has-submenu"><span class="sub-arrow">+</span>Policies & Standard</a>
+          <ul class="orange lightest">
+            <li><a href="example">Try not to go beyond THIS level deep</a></li>
+            <li><a href="example">Item 2</a></li>
+            <li><a href="maine.gov">Item 3</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="example">Contact</a></li>
+    <li class="menu-search-bar">
+      <form method="get" name="input" action="http://www.maine.gov/search" class="wrapper">
+        <input class="search" type="text" id="search" name="search" placeholder="Search Website" />
+        <input class="submit" type="submit" aria-hidden="true" value="&#128270;"/>
+        <input class="visuallyhidden" type="submit" value="search"/>
+      </form>
+    </li>
+  </ul>
+  
+  <!-- Smartmenu end -->
+  
+  <hr class="spacer">
+  
+  <!-- Breadcrumbs -->
+  <div class="row">
+    <ul class="breadcrumbs">
+      <!-- InstanceBeginEditable name="breadcrumbs" -->
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Section 1</a></li>
+      <li><a href="#">This page</a></li>
+      <!-- InstanceEndEditable -->
+    </ul>
+  </div>
+  <hr class="spacer">
+  <!-- InstanceBeginEditable name="contentHeader" --> 
+  
+  <!-- Big page title-->
+
+  <div class=" white-opacity-7 banner hover">
+    <p class="text-jumbo">Welcome to the Office of </p>
+  </div>
+  <hr class="spacer">
+  <!-- InstanceEndEditable --> 
+  
+  <!-- Main content section -->
+  
+  <main class="row white-opacity-8 text-lg" id="main-content"><!-- InstanceBeginEditable name="mainContent" -->
+    <div class="col-12"><h1 class="text-center basic-dark text-white rounded">Canvas</h1>
+      <canvas id="appCanvas" class="blue darker" width="100" height="100">Canvas not supported in your current browser!</canvas>
+      <script>
+        window.onload = function () {
+            var canvas = document.getElementById('appCanvas');
+            var ctx    = canvas.getContext('2d');
+
+            /*
+            ctx.font         = '32px Arial';
+            ctx.textAlign    = 'left';
+            ctx.textBaseline = 'top';
+            
+            var textWidth = ctx.measureText('_').width - 3;
+            canvas.width  = textWidth * 60;
+            canvas.height = 29 * 20;
+
+            ctx.font         = '32px Arial';
+            ctx.textAlign    = 'left';
+            ctx.textBaseline = 'top';
+            //ctx.fillStyle    = '#fff';
+
+            for (var x = 0; x < 100; x++) {
+                for (var y = 0; y < 30; y++) {
+                    ctx.fillText((Math.round(Math.random() * 1) ? '_' : '|'), x * textWidth, y * 29);
+                }
+            }
+            */
+  
+              var c = 1;
+              var b = 50;
+              canvas.width = '500';
+              canvas.height = '500';
+
+              var loop = function (c) {
+                ctx.fillStyle = '#fff';
+                for (var x = 0; x < 500/c; x++) {
+                  for (var y = 0; y < 500/c; y++) {
+                    if (x&y) ctx.fillRect(x*c,y*c,1+c,1+c);
+                  }
+                }
+              }
+              setInterval(function () {
+                var result = null;
+                canvas.width = canvas.width;
+                if (c < 51) {
+                  c++;
+                  result = c;
+                }
+                else {
+                  b--;
+                  result = b;
+                }
+                if (b == 0) {
+                  c = 1;
+                  b = 50;
+                  result = c;
+                };
+
+                loop(result);
+              }, 100);
+                
+                
+        }
+      </script>
+      <hr class="spacer">
+    </div>
+    <!-- InstanceEndEditable --> </main>
+  <!-- InstanceBeginEditable name="extendedContent" -->
+  <hr class="spacer">
+  <div class="row hover basic-white text-lg">
+    <div class="col-3">
+      <p><strong>Contact Us - 123-4567</strong></p>
+    </div>
+  </div>
+  <!-- InstanceEndEditable --> </div>
+
+<!-- Footer -->
+<footer role="contentinfo" id="footer">
+  <div class="row jagged"> <!-- InstanceBeginEditable name="footerLinks" -->
+    <div class="col-3"></div>
+    <div class="col-2 text-grey lighter">
+      <h4 class="text-grey light">Information</h4>
+      <ul>
+        <li><a href="http://www.maine.gov/">Maine.gov</a></li>
+        <li><a href="http://www.maine.gov/dafs">DAFS Home</a></li>
+      </ul>
+    </div>
+    <div class="col-2 text-yellow lighter">
+      <h4 class="text-yellow light">Support</h4>
+      <ul>
+        <li><a href="http://www.maine.gov/oit/accessibility">Accessibility</a></li>
+        <li><a href="http://www.maine.gov/portal/policies/index.html">Policies</a></li>
+        <li><a href="http://www.maine.gov/portal/policies/privacy.html">Privacy Policy</a></li>
+        <li><a href="/oit/sitemap.html">Sitemap</a></li>
+      </ul>
+    </div>
+    <div class="col-2 text-orange lighter">
+      <h4 class="text-light text-orange light">Supported By</h4>
+      <ul>
+        <li><a href="http://www.maine.gov/oit/accessibility">People</a></li>
+      </ul>
+    </div>
+    <div class="col-3"></div>
+    <!-- InstanceEndEditable --> </div>
+</footer>
+
+<!-- jQuery --> 
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<!-- jQuery 3.1.0 -->
+<!--<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Modernizer 
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script> --> 
+<!-- SmartMenus Jquery Plugin --> 
+<script src="js/smartmenus/jquery.smartmenus.min.js" type="text/javascript"></script> 
+<!-- SmartMenus jQuery Keyboard Addon --> 
+<script type="text/javascript" src="js/smartmenus/jquery.smartmenus.keyboard.min.js"></script> 
+<!-- Plugins --> 
+<script src="js/plugins.js"></script> 
+<!-- OIT Script --> 
+<script src="js/main.js"></script> 
+<!-- InstanceBeginEditable name="footerIncludes" -->
+
+<!-- InstanceEndEditable --> 
+</body>
+<!-- InstanceEnd --></html>
